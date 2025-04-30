@@ -69,7 +69,12 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
             free(nuevo);
             return;
         }
-        actual = tree->lower_than(key, actual->pair->key) ? actual->left : actual->right;
+        if (tree->lower_than(key, actual->pair->key)) {
+        actual = actual->left;
+        }
+        else {
+        actual = actual->right;
+        }
     }
 
     nuevo->parent = padre;
