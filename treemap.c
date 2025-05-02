@@ -111,9 +111,9 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     free(node);
     tree->current = NULL;
     return;
-    }
-    
 }
+    
+
 
 void eraseTreeMap(TreeMap * tree, void* key){
     if (tree == NULL || tree->root == NULL) return;
