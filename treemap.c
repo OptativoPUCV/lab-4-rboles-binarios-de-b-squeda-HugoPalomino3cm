@@ -190,6 +190,13 @@ Pair * upperBound(TreeMap * tree, void* key) {
         }
         else current = current->right;;
     }
+    if (candidato != NULL) {
+        tree->current = candidato;
+        return candidato->pair;
+    }
+
+    tree->current = NULL;
+    return NULL;
 }
 
 Pair *firstTreeMap(TreeMap * tree) {
