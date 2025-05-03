@@ -184,7 +184,12 @@ Pair * upperBound(TreeMap * tree, void* key) {
     TreeNode *candidato = NULL;
 
     while(current != NULL){
-        if (tree->lower_than(key, current->pair->key)){
+        if (is_equal(tree, current->pair->key,key)){
+            tree->current = current;
+            return current->pair;
+        }
+
+        if (tree->lower_than(key,current->pair->key)){
             candidato = current;
             current = current->left;
         }
