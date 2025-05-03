@@ -219,6 +219,14 @@ Pair * nextTreeMap(TreeMap * tree) {
         return current->pair;
     }
 
+    while(current->parent != NULL && current->parent->right == current){
+        current = current->parent;
+    }
+
+    current = current->parent;
+    tree->current = current;
+
+    if (current != NULL) return current->pair;
 
     return NULL;
 }
