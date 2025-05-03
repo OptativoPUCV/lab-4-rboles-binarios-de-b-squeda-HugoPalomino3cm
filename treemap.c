@@ -188,7 +188,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
             candidato = current;
             current = current->left;
         }
-        else current = current->right;;
+        else current = current->right;
     }
     if (candidato != NULL) {
         tree->current = candidato;
