@@ -184,7 +184,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
     TreeNode *candidato = NULL;
 
     while(current != NULL){
-        if (tree->lower_than(key,current->pair->key)){
+        if (tree->lower_than(key, current->pair->key)){
             candidato = current;
             current = current->left;
         }
@@ -210,5 +210,15 @@ Pair *firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
+    if (tree == NULL || tree->current == NULL) return NULL;
+    
+    TreeNode *current = tree->current;
+    if (current->right != NULL){
+        current = minimum(current->right);
+        tree->current = current;
+        return current->pair;
+    }
+
+
     return NULL;
 }
