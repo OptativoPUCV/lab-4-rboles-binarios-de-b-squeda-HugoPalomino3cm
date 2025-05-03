@@ -114,7 +114,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     tree->current = NULL;
     return;
     }
-    
+
     if (node->left == NULL || node->right == NULL) {
         TreeNode *child = (node->left != NULL) ? node->left : node->right;
         
@@ -134,6 +134,11 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         tree->current = child;
         return;
     }
+
+    TreeNode *successor = minimum(node->right); 
+    node->pair->key = successor->pair->key;    
+    node->pair->value = successor->pair->value;
+    removeNode(tree, successor);
 }
 
 
